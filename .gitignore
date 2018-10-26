@@ -363,3 +363,5 @@ src/QS.WhiteLabel/Assets/styles/site_[0-9a-z]*-[0-9a-z]*-[0-9a-z]*-[0-9a-z]*-[0-
 src/QS.Admin/App_Data/wkhtmltopdf/
 /src/container/platform/admin/dockerFiles
 src/QS.WhiteLabel/Assets/cmsAssets/
+tools/
+build-output/

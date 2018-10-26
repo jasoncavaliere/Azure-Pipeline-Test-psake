@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PipelineTest</id>
+    <version>1.0.0</version>
+    <title>Pipeline test</title>
+    <authors>Jason Cavaliere</authors>
+    <owners>Jason Cavaliere</owners>
+    <description>Pipeline test using Cake</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018</copyright>
+  </metadata>
+  <files>
+    <file src="*.ps1" />
+    <file src="*.asax" />
+    <file src="*.config" />
+    <file src="bin\**\*.dll" target="bin" />
+    <file src="bin\roslyn\*.*" target="bin\roslyn\" />
+    <file src="Views\**\*.*" target="Views" />
+  </files>
+</package>
