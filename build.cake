@@ -1,16 +1,19 @@
 #tool "nuget:?package=xunit.runner.console"
 
 var target = Argument("target","BuildPackages");
+var solution = File("./src/PipelineTest.sln");
+Task("Restore").Does(() => NuGetRestore(solution));
 
 Task("Build")
-.Does(()=>{
-    MSBuild("./src/PipelineTest.sln");
-});
+	.IsDependentOn("Restore")
+	.Does(()=>{
+		MSBuild("./src/PipelineTest.sln");
+	});
 Task("RunUnitTests")
-.IsDependentOn("Build")
-    .Does(()=>{
-        XUnit2("./src/PipelineTest.Tests/bin/debug/PipelineTest.Tests.dll");
-    });
+	.IsDependentOn("Build")
+		.Does(()=>{
+			XUnit2("./src/PipelineTest.Tests/bin/debug/PipelineTest.Tests.dll");
+		});
 Task("BuildPackages")
 	.IsDependentOn("RunUnitTests")
     .Does(() =>
